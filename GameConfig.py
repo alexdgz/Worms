@@ -7,3 +7,6 @@ class GameConfig:
 
     def init():
         GameConfig.BACKGROUND_IMG =pygame.image.load('ressources/background.jpg')
+
+    #définition TEMPORAIRE de la plateforme
+    PLATEFORM_Y = 504
