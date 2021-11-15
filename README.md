@@ -1,2 +1,2 @@
 # Worms
-le jeu worms du projet
+le jeu VR de Terre
