@@ -1,2 +1,9 @@
+import pygame
+
 class GameConfig:
-    pass
+    #définition de la fenetre
+    WINDOW_H = 544
+    WINDOW_L = 735
+
+    def init():
+        GameConfig.BACKGROUND_IMG =pygame.image.load('ressources/background.jpg')
