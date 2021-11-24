@@ -16,11 +16,12 @@ def game_loop(window):
         next_move = get_next_move()
         game_state.draw(window)
         pygame.time.delay(10)
-        game_state.advance_state(next_move)
+        game_state.advance_state(next_move,window)
         pygame.display.update()
 
 def get_next_move():
     next_move = Move()
+
     keys = pygame.key.get_pressed()
     if keys[pygame.K_RIGHT]:
         next_move.right = True
@@ -28,6 +29,10 @@ def get_next_move():
         next_move.left = True
     if keys[pygame.K_UP]:
         next_move.jump = True
+
+    if keys[pygame.K_SPACE]:
+        next_move.shoot = True
+
     return next_move
 
 

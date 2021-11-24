@@ -8,9 +8,13 @@ class GameConfig:
     def init():
         GameConfig.BACKGROUND_IMG =pygame.image.load('ressources/background.png')
         GameConfig.CRAPOUX_IMG = pygame.image.load('ressources/crapoux_asset.png')
+        GameConfig.PROJECTILE_IMG = pygame.image.load('ressources/projectile.png')
+
 
     #définition TEMPORAIRE de la plateforme
     Y_PLATEFORM = 516
+    GRAVITY = 9.81
+    MASSE = 30
 
     #définition du personnage
     WORM_H = 64
@@ -18,6 +22,11 @@ class GameConfig:
     DT = 0.5
     FORCE_LEFT = -20
     FORCE_RIGHT = -FORCE_LEFT
-    GRAVITY = 9.81
     FORCE_JUMP = -100
+
+    #définition du projectile
+    projectile_H = 10
+    projectile_W = 10
+    PUISSANCE = 3
+    ANGLE = 45
 
