@@ -3,7 +3,6 @@ from GameConfig import *
 from Worm import *
 from Shoot import *
 
-
 class GameState:
     def draw(self, window):
         window.blit(GameConfig.BACKGROUND_IMG, (0, 0))
