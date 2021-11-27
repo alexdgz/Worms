@@ -33,9 +33,7 @@ class GameState:
         elif next_move.angleBas:
             GameConfig.ANGLE-=1
             print(GameConfig.ANGLE)
-
             if GameConfig.ANGLE<0:
-
                 GameConfig.ANGLE = 0
 
     def variationVecteur(self,next_move):
