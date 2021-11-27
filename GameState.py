@@ -6,7 +6,9 @@ from Shoot import *
 class GameState:
     def draw(self, window):
         window.blit(GameConfig.BACKGROUND_IMG, (0, 0))
+        window.blit(GameConfig.TERRAIN_IMG, (0, 0))
         self.worm.draw(window)
+
         #self.Shoot.draw(window)
 
 
@@ -17,3 +19,12 @@ class GameState:
     def advance_state(self, next_move,window):
         self.worm.advance_state(next_move)
         self.Shoot.advance_state(next_move,window)
+
+    def angle(self, next_move):
+
+
+        pass
+
+    def puissance(self,next_move):
+
+        pass

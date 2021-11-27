@@ -10,13 +10,15 @@ def game_loop(window):
     game_state = GameState()
     game_state.draw(window)
     while not quitting:
+        game_state.draw(window)
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 quitting = True
         next_move = get_next_move()
-        game_state.draw(window)
-        pygame.time.delay(10)
+        pygame.time.delay(5)
         game_state.advance_state(next_move,window)
+
         pygame.display.update()
 
 def get_next_move():
@@ -29,7 +31,8 @@ def get_next_move():
         next_move.left = True
     if keys[pygame.K_UP]:
         next_move.jump = True
-
+    if keys[pygame.K_UP]:
+        next_move.angle = True
     if keys[pygame.K_SPACE]:
         next_move.shoot = True
 
