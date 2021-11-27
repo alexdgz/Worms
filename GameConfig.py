@@ -31,6 +31,14 @@ class GameConfig:
     #définition du projectile
     projectile_H = 10
     projectile_W = 10
-    PUISSANCE = 3
-    ANGLE = 45
+    PUISSANCE = 15
+    ANGLE = 35
+
+    VECTEUR = pygame.math.Vector2(10,10)
+
+    G_GAUCHE = False
+    D_DROIT = False
+    #VX = VECTEUR.x
+    #VY = VECTEUR.y
+
 

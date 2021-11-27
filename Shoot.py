@@ -37,20 +37,25 @@ class Shoot:
 
         return Y
 
+
+
+
     def advance_state(self, next_move,window):
+
         if next_move.shoot:
+
             self.draw(window)
             #pygame.time.wait(5)
             #while(self.rect.top<GameConfig.Y_PLATEFORM):
 
-            self.draw(window)
             t = 0;
-            y = np.array([self.vx, self.vy, self.rect.left, self.rect.top])
+
+            y = np.array([GameConfig.VECTEUR.x, GameConfig.VECTEUR.y, self.rect.left, self.rect.top])
 
             Y = self.euler(y,GameConfig.DT,t,self.fg)
 
-            self.vx = Y[0]
-            self.vy = Y[1]
+            GameConfig.VECTEUR.x = Y[0]
+            GameConfig.VECTEUR.y = Y[1]
 
             self.rect = self.rect.move(Y[2]-self.rect.left,Y[3]-self.rect.top)
 

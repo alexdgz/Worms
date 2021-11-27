@@ -1,9 +1,6 @@
 import random
-
 import numpy as np
 from PIL import Image
-
-
 
 class Map:
 
@@ -11,7 +8,6 @@ class Map:
         ecartX = 960 // 4  # pour mettre 5 pts
 
         xCourant = np.array([20,ecartX,ecartX*2,ecartX*3,ecartX*4-20])
-        #yCourant = np.array([640,(640//2),650,(640//2),640])
 
         tabF = np.zeros(len(xCourant))
 
