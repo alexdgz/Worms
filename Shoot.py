@@ -27,14 +27,8 @@ class Shoot:
         return np.array([0,GameConfig.GRAVITY/GameConfig.MASSE,y[0],y[1]])
 
     def euler(self,y,h,t,f):
-
-        #T = np.array([t])
-        #T = T[0] + h
-        #print(T[0])
-
         Y = y
         Y = Y + h * f(Y)
-
         return Y
 
 
@@ -45,7 +39,6 @@ class Shoot:
         if next_move.shoot:
 
             self.draw(window)
-            #pygame.time.wait(5)
             #while(self.rect.top<GameConfig.Y_PLATEFORM):
 
             t = 0;

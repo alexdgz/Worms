@@ -24,12 +24,23 @@ class GameState:
 
 
     def angle(self,next_move):
-
         if next_move.angleHaut:
             GameConfig.ANGLE+=1
             print(GameConfig.ANGLE)
-            if GameConfig.ANGLE>360:
-                GameConfig.ANGLE = 360
+            if GameConfig.ANGLE>90:
+                GameConfig.ANGLE = 90
+        elif next_move.angleBas:
+            GameConfig.ANGLE-=1
+            print(GameConfig.ANGLE)
+            if GameConfig.ANGLE<0:
+                GameConfig.ANGLE = 0
+
+    def puissance(self,next_move):
+        if next_move.angleHaut:
+            GameConfig.ANGLE+=1
+            print(GameConfig.ANGLE)
+            if GameConfig.ANGLE>90:
+                GameConfig.ANGLE = 90
         elif next_move.angleBas:
             GameConfig.ANGLE-=1
             print(GameConfig.ANGLE)

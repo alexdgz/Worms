@@ -66,7 +66,7 @@ def main():
     pygame.init()
     GameConfig.init()
     window = pygame.display.set_mode((GameConfig.WINDOW_L, GameConfig.WINDOW_H))
-    pygame.display.set_caption("VR_de_Terre.crapoux")
+    pygame.display.set_caption("CrapouxTheGame.exe")
     game_loop(window)
     pygame.quit()
     quit()
