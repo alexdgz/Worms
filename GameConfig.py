@@ -1,6 +1,7 @@
 import pygame
 
 from Map import *
+from Platform import *
 
 class GameConfig:
     #définition de la fenetre
@@ -10,8 +11,14 @@ class GameConfig:
     def init():
         GameConfig.BACKGROUND_IMG =pygame.image.load('ressources/background.png')
         GameConfig.CRAPOUX_IMG = pygame.image.load('ressources/crapoux_asset.png')
-        Map.mapCreate()
-        GameConfig.TERRAIN_IMG = pygame.image.load('ressources/terrain_asset.png')
+        GameConfig.CRAPOUX_MASK = pygame.mask.from_surface(GameConfig.CRAPOUX_IMG)
+        plt = Platform()
+        plt.mapCreate()
+        GameConfig.TERRAIN_IMG = pygame.image.load('ressources/terrain_asset.png').convert_alpha()
+        GameConfig.TERRAIN_MASK = pygame.mask.from_surface(GameConfig.TERRAIN_IMG)
+        gc = GameConfig()
+        map = Map(0,gc)
+
         GameConfig.PROJECTILE_IMG = pygame.image.load('ressources/projectile.png')
 
 
@@ -19,6 +26,7 @@ class GameConfig:
     Y_PLATEFORM = 516
     GRAVITY = 9.81
     MASSE = 30
+
 
     #définition du personnage
     WORM_H = 64
