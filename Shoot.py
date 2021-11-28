@@ -3,8 +3,6 @@ from Worm import *
 import numpy as np
 from GameConfig import *
 
-
-
 class Shoot:
     def __init__(self, Worm):
         self.Worm = Worm
@@ -32,35 +30,34 @@ class Shoot:
 
         #T = np.array([t])
         #T = T[0] + h
+        #print(T[0])
 
         Y = y
-        #print(T[0])
         Y = Y + h * f(Y)
 
         return Y
 
+
+
+
     def advance_state(self, next_move,window):
+
         if next_move.shoot:
+
             self.draw(window)
+            #pygame.time.wait(5)
+            #while(self.rect.top<GameConfig.Y_PLATEFORM):
 
-            while(self.rect.top<GameConfig.Y_PLATEFORM):
-                pygame.time.wait(10)
-                self.draw(window)
+            t = 0;
 
-                t = 0;
-                y = np.array([self.vx,self.vy,self.rect.left,self.rect.top])
+            y = np.array([GameConfig.VECTEUR.x, GameConfig.VECTEUR.y, self.rect.left, self.rect.top])
 
-                Y = self.euler(y,GameConfig.DT,t,self.fg)
+            Y = self.euler(y,GameConfig.DT,t,self.fg)
 
-                self.vx = Y[0]
-                self.vy = Y[1]
+            GameConfig.VECTEUR.x = Y[0]
+            GameConfig.VECTEUR.y = Y[1]
 
-                self.rect = self.rect.move(Y[2]-self.rect.left,Y[3]-self.rect.top)
+            self.rect = self.rect.move(Y[2]-self.rect.left,Y[3]-self.rect.top)
 
-                self.rect.left = Y[2]
-                self.rect.top = Y[3]
-
-
-
-
-
+            self.rect.left = Y[2]
+            self.rect.top = Y[3]

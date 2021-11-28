@@ -1,5 +1,7 @@
 import pygame
 
+from Map import *
+
 class GameConfig:
     #définition de la fenetre
     WINDOW_H = 640
@@ -8,6 +10,8 @@ class GameConfig:
     def init():
         GameConfig.BACKGROUND_IMG =pygame.image.load('ressources/background.png')
         GameConfig.CRAPOUX_IMG = pygame.image.load('ressources/crapoux_asset.png')
+        Map.mapCreate()
+        GameConfig.TERRAIN_IMG = pygame.image.load('ressources/terrain_asset.png')
         GameConfig.PROJECTILE_IMG = pygame.image.load('ressources/projectile.png')
 
 
@@ -27,6 +31,14 @@ class GameConfig:
     #définition du projectile
     projectile_H = 10
     projectile_W = 10
-    PUISSANCE = 3
-    ANGLE = 45
+    PUISSANCE = 15
+    ANGLE = 35
+
+    VECTEUR = pygame.math.Vector2(10,10)
+
+    G_GAUCHE = False
+    D_DROIT = False
+    #VX = VECTEUR.x
+    #VY = VECTEUR.y
+
 
