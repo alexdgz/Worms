@@ -41,16 +41,16 @@ class Shoot:
             self.draw(window)
             #while(self.rect.top<GameConfig.Y_PLATEFORM):
 
-            t = 0;
+        t = 0
 
-            y = np.array([GameConfig.VECTEUR.x, GameConfig.VECTEUR.y, self.rect.left, self.rect.top])
+        y = np.array([GameConfig.VECTEUR.x, GameConfig.VECTEUR.y, self.rect.left, self.rect.top])
 
-            Y = self.euler(y,GameConfig.DT,t,self.fg)
+        Y = self.euler(y,GameConfig.DT,t,self.fg)
 
-            GameConfig.VECTEUR.x = Y[0]
-            GameConfig.VECTEUR.y = Y[1]
+        GameConfig.VECTEUR.x = Y[0]
+        GameConfig.VECTEUR.y = Y[1]
 
-            self.rect = self.rect.move(Y[2]-self.rect.left,Y[3]-self.rect.top)
+        self.rect = self.rect.move(Y[2]-self.rect.left,Y[3]-self.rect.top)
 
-            self.rect.left = Y[2]
-            self.rect.top = Y[3]
+        self.rect.left = Y[2]
+        self.rect.top = Y[3]

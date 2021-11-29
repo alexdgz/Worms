@@ -8,13 +8,16 @@ class GameConfig:
     WINDOW_L = 960
 
     def init():
-        GameConfig.BACKGROUND_IMG =pygame.image.load('ressources/background.png')
+        GameConfig.BACKGROUND_IMG = pygame.image.load('ressources/background.png')
         GameConfig.CRAPOUX_IMG = pygame.image.load('ressources/crapoux_asset.png')
         GameConfig.CRAPOUX_MASK = pygame.mask.from_surface(GameConfig.CRAPOUX_IMG)
 
         Map.mapCreate()
         GameConfig.TERRAIN_IMG = pygame.image.load('ressources/terrain_asset.png').convert_alpha()
         GameConfig.TERRAIN_MASK = pygame.mask.from_surface(GameConfig.TERRAIN_IMG)
+
+        GameConfig.EAU_IMG = pygame.image.load('ressources/eau.png')
+
 
         GameConfig.PROJECTILE_IMG = pygame.image.load('ressources/projectile.png')
 

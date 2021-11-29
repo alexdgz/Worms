@@ -42,6 +42,7 @@ class Map:
                     tabPix.append((255,255,255,0))
 
 
+
         courbe.putdata(tabPix)
 
         imgTerrainFinal = Image.new(mode = 'RGBA', size=(960,640), color = (55,32,20,0))
@@ -50,6 +51,12 @@ class Map:
 
         imgTerrainFinal.paste(dirt, (0,0), courbe)
         imgTerrainFinal.save("ressources/terrain_asset.png", format='png')
+
+        imgBlancFond = Image.new(mode = 'RGBA', size=(960,640), color = (255,255,255,255))
+        imgBlancFond.save("ressources/background.png", format='png')
+
+        return tabPix
+
 
 
 

@@ -7,6 +7,8 @@ class GameState:
     def draw(self, window):
         window.blit(GameConfig.BACKGROUND_IMG, (0, 0))
         window.blit(GameConfig.TERRAIN_IMG, (0, 0))
+        window.blit(GameConfig.EAU_IMG, (0,0))
+
         self.worm.draw(window)
 
         #self.Shoot.draw(window)

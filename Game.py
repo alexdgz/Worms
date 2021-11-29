@@ -22,6 +22,7 @@ def game_loop(window):
                 GameConfig.G_GAUCHE = False
                 GameConfig.D_DROIT = True
 
+
             elif event.type == pygame.KEYUP and event.key == pygame.K_a:
                 game_state.Shoot.rect = pygame.Rect(
                                 game_state.worm.rect.left,
@@ -34,7 +35,7 @@ def game_loop(window):
 
 
         next_move = get_next_move()
-        pygame.time.delay(10)
+        pygame.time.delay(7)
 
         game_state.angle(next_move)
         game_state.variationVecteur(next_move)
