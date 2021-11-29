@@ -10,6 +10,7 @@ class GameConfig:
     def init():
         GameConfig.BACKGROUND_IMG =pygame.image.load('ressources/background.png')
         GameConfig.CRAPOUX_IMG = pygame.image.load('ressources/crapoux_asset.png')
+        GameConfig.CRAPOUX_MASK = pygame.mask.from_surface(GameConfig.CRAPOUX_IMG)
 
         Map.mapCreate()
         GameConfig.TERRAIN_IMG = pygame.image.load('ressources/terrain_asset.png')

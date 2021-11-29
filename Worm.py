@@ -10,6 +10,7 @@ class Worm(pygame.sprite.Sprite) :
         self.vx = 0
         self.vy = 0
         self.image = GameConfig.CRAPOUX_IMG
+        self.mask = GameConfig.CRAPOUX_MASK
     def draw(self,window):
         window.blit(self.image, self.rect.topleft)
 
