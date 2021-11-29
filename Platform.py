@@ -9,4 +9,4 @@ class Platform(pygame.sprite.Sprite):
         self.vx = 0
         self.vy = 0
         self.image = GameConfig.TERRAIN_IMG
-        self.mask = GameConfig.CRAPOUX_MASK
+        self.mask = GameConfig.TERRAIN_MASK

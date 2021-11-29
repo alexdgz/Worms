@@ -34,7 +34,7 @@ def game_loop(window):
 
 
         next_move = get_next_move()
-        pygame.time.delay(5)
+        pygame.time.delay(10)
 
         game_state.angle(next_move)
         game_state.variationVecteur(next_move)
@@ -72,9 +72,10 @@ def get_next_move():
 
 
 def main():
+
     pygame.init()
-    GameConfig.init()
     window = pygame.display.set_mode((GameConfig.WINDOW_L, GameConfig.WINDOW_H))
+    GameConfig.init()
     pygame.display.set_caption("CrapouxTheGame.exe")
     game_loop(window)
     pygame.quit()

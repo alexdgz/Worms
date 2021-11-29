@@ -13,7 +13,8 @@ class GameConfig:
         GameConfig.CRAPOUX_MASK = pygame.mask.from_surface(GameConfig.CRAPOUX_IMG)
 
         Map.mapCreate()
-        GameConfig.TERRAIN_IMG = pygame.image.load('ressources/terrain_asset.png')
+        GameConfig.TERRAIN_IMG = pygame.image.load('ressources/terrain_asset.png').convert_alpha()
+        GameConfig.TERRAIN_MASK = pygame.mask.from_surface(GameConfig.TERRAIN_IMG)
 
         GameConfig.PROJECTILE_IMG = pygame.image.load('ressources/projectile.png')
 

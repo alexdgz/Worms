@@ -1,5 +1,8 @@
 import pygame
+
+import Platform
 from GameConfig import *
+from Platform import *
 
 class Worm(pygame.sprite.Sprite) :
     def __init__(self, x):
@@ -16,10 +19,12 @@ class Worm(pygame.sprite.Sprite) :
 
 
     def on_ground(self):
+        """
         if self.rect.bottom == GameConfig.Y_PLATEFORM:
             return True
         return False
-
+        """
+        return pygame.sprite.collide_mask(self, Platform(0))
     def advance_state(self, next_move):
 
         # Acceleration
