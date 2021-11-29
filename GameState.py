@@ -1,4 +1,6 @@
 import pygame
+
+import GameConfig
 from GameConfig import *
 from Worm import *
 from Shoot import *
@@ -15,7 +17,7 @@ class GameState:
 
 
     def __init__(self):
-        self.worm = Worm(20)
+        self.worm = Worm(20, GameConfig.MAP)
         self.Shoot = Shoot(self.worm)
 
     def advance_state(self, next_move,window):

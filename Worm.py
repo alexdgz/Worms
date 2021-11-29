@@ -5,7 +5,7 @@ from GameConfig import *
 from Platform import *
 
 class Worm(pygame.sprite.Sprite) :
-    def __init__(self, x):
+    def __init__(self, x, map):
         self.rect = pygame.Rect(x,
                                 GameConfig.Y_PLATEFORM - GameConfig.WORM_H,
                                 GameConfig.WORM_L,
@@ -14,6 +14,9 @@ class Worm(pygame.sprite.Sprite) :
         self.vy = 0
         self.image = GameConfig.CRAPOUX_IMG
         self.mask = GameConfig.CRAPOUX_MASK
+        self.map = map
+
+
     def draw(self,window):
         window.blit(self.image, self.rect.topleft)
 
@@ -38,6 +41,7 @@ class Worm(pygame.sprite.Sprite) :
             fy = GameConfig.FORCE_JUMP
         # Vitesse
         self.vx = fx*GameConfig.DT
+
         if self.on_ground():
             self.vy = fy * GameConfig.DT
         else:
@@ -52,3 +56,8 @@ class Worm(pygame.sprite.Sprite) :
         vy_max = (GameConfig.Y_PLATEFORM - GameConfig.WORM_H - y) / GameConfig.DT
         self.vy = min(self.vy, vy_max)
         self.rect = self.rect.move(self.vx * GameConfig.DT, self.vy * GameConfig.DT)
+
+        """
+        if(self.on_ground()):
+            self.rect=self.rect.move(0,self.map.lagrange(self.rect.midbottom[0])+10)
+        """

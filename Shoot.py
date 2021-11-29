@@ -34,8 +34,6 @@ class Shoot(pygame.sprite.Sprite):
         return Y
 
 
-
-
     def advance_state(self, next_move,window):
 
         if next_move.shoot:
