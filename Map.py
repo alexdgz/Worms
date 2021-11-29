@@ -8,7 +8,7 @@ class Map:
         ecartX = 960 // 4  # pour mettre 5 pts
 
         xCourant = np.array([20,ecartX,ecartX*2,ecartX*3,ecartX*4-20])
-
+        
         tabF = np.zeros(len(xCourant))
 
         for i in range(yCourant.size):
@@ -27,7 +27,7 @@ class Map:
     # trouvé une technique pour créer selon la dérivé ou je sais pas quoi
     def mapCreate():
 
-        img = Image.new(mode = 'RGBA', size=(640,960), color = (55,32,20,255))
+        courbe = Image.new(mode = 'RGBA', size=(640,960), color = (55,32,20,255))
 
         tabPix = []
 
@@ -42,8 +42,15 @@ class Map:
                     tabPix.append((255,255,255,0))
 
 
-        img.putdata(tabPix)
-        #img.save("ressources/terrain_asset.png", format='png')
-        img.rotate(-90,expand=True).save("ressources/terrain_asset.png", format='png')
+        courbe.putdata(tabPix)
+
+        imgTerrainFinal = Image.new(mode = 'RGBA', size=(960,640), color = (55,32,20,0))
+        dirt = Image.open("ressources/dirt.png")
+        courbe = courbe.rotate(-90,expand=True)
+
+        imgTerrainFinal.paste(dirt, (0,0), courbe)
+        imgTerrainFinal.save("ressources/terrain_asset.png", format='png')
+
+
 
 
