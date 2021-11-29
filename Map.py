@@ -56,8 +56,8 @@ class Map:
         imgTerrainFinal.paste(dirt, (0,0), courbe)
         imgTerrainFinal.save("ressources/terrain_asset.png", format='png')
 
-        imgBlancFond = Image.new(mode = 'RGBA', size=(960,640), color = (255,255,255,255))
-        imgBlancFond.save("ressources/background.png", format='png')
+        #imgBlancFond = Image.new(mode = 'RGBA', size=(960,640), color = (255,255,255,255))
+        #imgBlancFond.save("ressources/background.png", format='png')
 
 
 

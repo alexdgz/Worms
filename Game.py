@@ -29,7 +29,7 @@ def game_loop(window):
                                 game_state.worm.rect.top,
                                 GameConfig.projectile_W,
                                 GameConfig.projectile_H)
-                pass
+
 
 
 
