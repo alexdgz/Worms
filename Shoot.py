@@ -3,7 +3,7 @@ from Worm import *
 import numpy as np
 from GameConfig import *
 
-class Shoot:
+class Shoot(pygame.sprite.Sprite):
     def __init__(self, Worm):
         self.Worm = Worm
 
@@ -14,12 +14,14 @@ class Shoot:
         self.vx = 5
         self.vy = -10
         self.image = GameConfig.PROJECTILE_IMG
+        self.mask = GameConfig.PROJECTILE_MASK
 
     def draw(self,window):
         window.blit(self.image, self.rect.topleft)
 
     def on_ground(self):
-        if self.rect.bottom == GameConfig.Y_PLATEFORM:
+        if pygame.sprite.collide_mask(self,Platform(0)):
+            print("on ground")
             return True
         return False
 

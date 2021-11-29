@@ -19,7 +19,8 @@ class GameConfig:
         GameConfig.EAU_IMG = pygame.image.load('ressources/eau.png')
 
 
-        GameConfig.PROJECTILE_IMG = pygame.image.load('ressources/projectile.png')
+        GameConfig.PROJECTILE_IMG = pygame.image.load('ressources/projectile.png').convert_alpha()
+        GameConfig.PROJECTILE_MASK = pygame.mask.from_surface(GameConfig.PROJECTILE_IMG)
 
 
     #définition TEMPORAIRE de la plateforme
