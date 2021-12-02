@@ -30,12 +30,22 @@ class GameState:
         if self.worm.is_touching(self.Shoot):
             if self.Shoot.Worm == self.worm2:
                 print("touché worm 1")
+                self.Shoot.rect = pygame.Rect(30000,
+                                              0,
+                                              GameConfig.projectile_W,
+                                              GameConfig.projectile_H)
         elif self.worm2.is_touching(self.Shoot):
             if self.Shoot.Worm == self.worm:
                 print("touché worm 2")
-                # self.Shoot.remove()
-                # self.Shoot = Shoot(self.worm)
-
+                self.Shoot.rect = pygame.Rect(30000,
+                                0,
+                                GameConfig.projectile_W,
+                                GameConfig.projectile_H)
+        elif self.Shoot.on_ground():
+            self.Shoot.rect = pygame.Rect(30000,
+                                          0,
+                                          GameConfig.projectile_W,
+                                          GameConfig.projectile_H)
 
 
 
