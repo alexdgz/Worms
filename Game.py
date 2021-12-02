@@ -41,12 +41,14 @@ def game_loop(window):
         if game_state.worm2.hp == 0:
             textsurface = myfont.render('Victoire du Crapoux numéro 1', False, (0, 0, 0))
             window.blit(textsurface,(0,0))
-            pygame.time.delay(100)
+            pygame.display.update()
+            pygame.time.delay(1000)
             quitting = True
         if game_state.worm.hp == 0:
             textsurface = myfont.render('Victoire du Crapoux numéro 2', False, (0, 0, 0))
             window.blit(textsurface, (0, 0))
-            pygame.time.delay(100   )
+            pygame.display.update()
+            pygame.time.delay(1000)
             quitting = True
 
         game_state.advance_state(next_move,window)
