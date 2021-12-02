@@ -19,7 +19,7 @@ class GameState:
 
     def __init__(self):
         self.worm = Worm(20, GameConfig.MAP)
-        self.worm2 = Worm(200, GameConfig.MAP)
+        self.worm2 = Worm(350, GameConfig.MAP)
 
         self.Shoot = Shoot(self.worm)
 
@@ -30,6 +30,8 @@ class GameState:
         if self.worm.is_touching(self.Shoot):
             if self.Shoot.Worm == self.worm2:
                 print("touché worm 1")
+                self.worm.hp -= 1
+                print("hp worm 1 : "+str(self.worm.hp))
                 self.Shoot.rect = pygame.Rect(30000,
                                               0,
                                               GameConfig.projectile_W,
@@ -37,6 +39,8 @@ class GameState:
         elif self.worm2.is_touching(self.Shoot):
             if self.Shoot.Worm == self.worm:
                 print("touché worm 2")
+                self.worm2.hp -= 1
+                print("hp worm 2 : " + str(self.worm2.hp))
                 self.Shoot.rect = pygame.Rect(30000,
                                 0,
                                 GameConfig.projectile_W,
@@ -46,6 +50,7 @@ class GameState:
                                           0,
                                           GameConfig.projectile_W,
                                           GameConfig.projectile_H)
+
 
 
 

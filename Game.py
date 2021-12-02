@@ -5,7 +5,9 @@ from GameConfig import *
 import pygame
 
 def game_loop(window):
-
+    pygame.font.init()  # you have to call this at the start,
+    # if you want to use this module.
+    myfont = pygame.font.SysFont('Comic Sans MS', 30)
     quitting = False
     game_state = GameState()
     game_state.draw(window)
@@ -36,6 +38,16 @@ def game_loop(window):
         game_state.angle(next_move)
         game_state.variationVecteur(next_move)
 
+        if game_state.worm2.hp == 0:
+            textsurface = myfont.render('Victoire du Crapoux numéro 1', False, (0, 0, 0))
+            window.blit(textsurface,(0,0))
+            pygame.time.delay(100)
+            quitting = True
+        if game_state.worm.hp == 0:
+            textsurface = myfont.render('Victoire du Crapoux numéro 2', False, (0, 0, 0))
+            window.blit(textsurface, (0, 0))
+            pygame.time.delay(100   )
+            quitting = True
 
         game_state.advance_state(next_move,window)
         pygame.display.update()

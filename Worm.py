@@ -15,6 +15,7 @@ class Worm(pygame.sprite.Sprite) :
         self.image = GameConfig.CRAPOUX_IMG
         self.mask = GameConfig.CRAPOUX_MASK
         self.map = map
+        self.hp = 3
 
 
     def draw(self,window):
