@@ -12,12 +12,15 @@ class GameState:
         window.blit(GameConfig.EAU_IMG, (0,0))
 
         self.worm.draw(window)
+        self.worm2.draw(window)
 
         #self.Shoot.draw(window)
 
 
     def __init__(self):
         self.worm = Worm(20, GameConfig.MAP)
+        self.worm2 = Worm(50, GameConfig.MAP)
+
         self.Shoot = Shoot(self.worm)
 
     def advance_state(self, next_move,window):

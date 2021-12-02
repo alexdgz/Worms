@@ -22,16 +22,12 @@ def game_loop(window):
                 GameConfig.G_GAUCHE = False
                 GameConfig.D_DROIT = True
 
-
-            elif event.type == pygame.KEYUP and event.key == pygame.K_a:
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_a:
                 game_state.Shoot.rect = pygame.Rect(
                                 game_state.worm.rect.left,
                                 game_state.worm.rect.top,
                                 GameConfig.projectile_W,
                                 GameConfig.projectile_H)
-
-
-
 
 
         next_move = get_next_move()
@@ -65,6 +61,7 @@ def get_next_move():
         next_move.angleBas = True
     if keys[pygame.K_LSHIFT]:
         next_move.angleHaut = True
+
 
     if keys[pygame.K_SPACE]:
         next_move.shoot = True
