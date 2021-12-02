@@ -22,12 +22,12 @@ class Worm(pygame.sprite.Sprite) :
 
 
     def on_ground(self):
-        """
-        if self.rect.bottom == GameConfig.Y_PLATEFORM:
-            return True
-        return False
-        """
         return pygame.sprite.collide_mask(self, Platform(0))
+
+    def is_touching(self,projectile):
+        return pygame.sprite.collide_mask(self,projectile)
+
+
     def advance_state(self, next_move):
 
         # Acceleration

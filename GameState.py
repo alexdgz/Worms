@@ -19,13 +19,24 @@ class GameState:
 
     def __init__(self):
         self.worm = Worm(20, GameConfig.MAP)
-        self.worm2 = Worm(50, GameConfig.MAP)
+        self.worm2 = Worm(200, GameConfig.MAP)
 
         self.Shoot = Shoot(self.worm)
 
     def advance_state(self, next_move,window):
         self.worm.advance_state(next_move)
-        self.Shoot.advance_state(next_move,window)
+        self.Shoot.advance_state(next_move, window)
+
+        if self.worm.is_touching(self.Shoot):
+            if self.Shoot.Worm == self.worm2:
+                print("touché worm 1")
+        elif self.worm2.is_touching(self.Shoot):
+            if self.Shoot.Worm == self.worm:
+                print("touché worm 2")
+                # self.Shoot.remove()
+                # self.Shoot = Shoot(self.worm)
+
+
 
 
 
