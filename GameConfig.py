@@ -26,7 +26,7 @@ class GameConfig:
         GameConfig.PROJECTILE_IMG = pygame.image.load('ressources/projectile.png').convert_alpha()
         GameConfig.PROJECTILE_MASK = pygame.mask.from_surface(GameConfig.PROJECTILE_IMG)
 
-
+    Y_PLATEFORM = 516
     GRAVITY = 9.81
     MASSE = 30
 
