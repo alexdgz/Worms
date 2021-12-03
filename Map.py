@@ -3,16 +3,16 @@ import numpy as np
 from PIL import Image
 
 class Map:
-
+    # définition des images voulu avec le calcul de lagrange
     def __init__(self):
         self.yCourant =  np.array([random.randint(540,600), random.randint(400,450), random.randint(600,700), random.randint(350,400), random.randint(540,640)])
 
 
-
+    # fonction qui calcule lagrange
     def lagrange(self, X): # pour tout x, je trouve son y
         ecartX = 960 // 4  # pour mettre 5 pts
 
-        xCourant = np.array([20,ecartX,ecartX*2,ecartX*3,ecartX*4-20])
+        xCourant = np.array([20,ecartX,ecartX*2,ecartX*3,ecartX*4-20]) #pour séparé l'écrans en 5
         
         tabF = np.zeros(len(xCourant))
 
@@ -21,45 +21,33 @@ class Map:
             fract = 1 # mettre à 1 car on la multiplie ensuite
             for j in range(xCourant.size):
                 if(i!=j):
-                    fract = fract * (X - xCourant[j])/(xCourant[i]-xCourant[j])
-            f = f * fract
-            tabF[i] = f
+                    fract = fract * (X - xCourant[j])/(xCourant[i]-xCourant[j]) # calcule de chaque fonctions ou la fonction, en x, passe par 1 et 0 pour tout les autres points
+            f = f * fract # on multiplie le résultat par le y courant.
+            tabF[i] = f #ajout de la fonction que l'on vient de calculer dans un tableau
 
-        F = np.sum(tabF)
+        F = np.sum(tabF) #on effectue la somme des fonction que l'on a calculer
 
         return F
 
-    # trouvé une technique pour créer selon la dérivé ou je sais pas quoi
+    # Méthode pour créer une image selon le polynôme calculé
     def mapCreate(self):
-
-        courbe = Image.new(mode = 'RGBA', size=(640,960), color = (55,32,20,255))
-
+        courbe = Image.new(mode = 'RGBA', size=(640,960), color = (55,32,20,255)) # création de l'image
         tabPix = []
-
-
-        for x in range(960):
+        for x in range(960): # parcourt de la largeur de la fenêtre
             lagr = self.lagrange(x)
-            for y in range(640):
+            for y in range(640): # parcourt de la hauteur de la fenêtre
                 if(lagr<y):
-                    tabPix.append((0,0,0,255))
+                    tabPix.append((0,0,0,255)) #couleur noir
                 else:
-                    tabPix.append((255,255,255,0))
+                    tabPix.append((255,255,255,0)) #couleur blanche
 
 
 
-        courbe.putdata(tabPix)
+        courbe.putdata(tabPix) #ajout des pixel sur l'image
 
         imgTerrainFinal = Image.new(mode = 'RGBA', size=(960,640), color = (55,32,20,0))
         dirt = Image.open("ressources/dirt.png")
         courbe = courbe.rotate(-90,expand=True)
 
-        imgTerrainFinal.paste(dirt, (0,0), courbe)
-        imgTerrainFinal.save("ressources/terrain_asset.png", format='png')
-
-        #imgBlancFond = Image.new(mode = 'RGBA', size=(960,640), color = (255,255,255,255))
-        #imgBlancFond.save("ressources/background.png", format='png')
-
-
-
-
-
+        imgTerrainFinal.paste(dirt, (0,0), courbe) # on superpose le terrain sur le fond
+        imgTerrainFinal.save("ressources/terrain_asset.png", format='png') # on save l'image

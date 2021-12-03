@@ -5,16 +5,15 @@ from GameConfig import *
 import pygame
 
 def game_loop(window):
-    pygame.font.init()  # you have to call this at the start,
-    # if you want to use this module.
+    pygame.font.init()  # pour pouvoir utiliser pygame
     myfont = pygame.font.SysFont('Comic Sans MS', 30)
     quitting = False
-    game_state = GameState()
+    game_state = GameState() #initialisation des états de la games (worm, worm2 et shoot)
     game_state.draw(window)
     while not quitting:
         game_state.draw(window)
 
-        for event in pygame.event.get():
+        for event in pygame.event.get(): #vérification des evénement python
             if event.type == pygame.QUIT:
                 quitting = True
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_g:
@@ -32,11 +31,11 @@ def game_loop(window):
                                 GameConfig.projectile_H)
 
 
-        next_move = get_next_move()
+        next_move = get_next_move() #on récupère le prochain mouvement (evènement de touche)
         pygame.time.delay(7)
 
-        game_state.angle(next_move)
-        game_state.variationVecteur(next_move)
+        game_state.angle(next_move) #on lance la fonction pour géré l'angle si on veut tiré
+        game_state.variationVecteur(next_move) #on lance la fonction pour appliquer la variation au vecteur selon l'angle
 
         if game_state.worm2.hp == 0:
             textsurface = myfont.render('Victoire du Crapoux numéro 1', False, (0, 0, 0))
@@ -54,7 +53,7 @@ def game_loop(window):
         game_state.advance_state(next_move,window)
         pygame.display.update()
 
-def get_next_move():
+def get_next_move(): # méthode pour récupérer l'évènement suivant
     next_move = Move()
 
     keys = pygame.key.get_pressed()
@@ -64,25 +63,17 @@ def get_next_move():
         next_move.left = True
     if keys[pygame.K_UP]:
         next_move.jump = True
-
     if keys[pygame.K_a]:
         next_move.angle = True
-
-
-
-
     if keys[pygame.K_LCTRL]:
         next_move.angleBas = True
     if keys[pygame.K_LSHIFT]:
         next_move.angleHaut = True
-
-
     if keys[pygame.K_SPACE]:
         next_move.shoot = True
-
     return next_move
 
-
+#main du jeu
 def main():
 
     pygame.init()

@@ -21,7 +21,7 @@ class Shoot(pygame.sprite.Sprite):
         window.blit(self.image, self.rect.topleft)
 
     def on_ground(self):
-        if pygame.sprite.collide_mask(self,Platform(0)): #or self.rect.bottom < GameConfig.Y_PLATEFORM:
+        if pygame.sprite.collide_mask(self,Platform(0)):
             print("on ground")
             return True
         return False

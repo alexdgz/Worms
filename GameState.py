@@ -5,12 +5,15 @@ from GameConfig import *
 from Worm import *
 from Shoot import *
 
+#classe pour définir le jeu
 class GameState:
     def draw(self, window):
+        #mise en place des terrains
         window.blit(GameConfig.BACKGROUND_IMG, (0, 0))
         window.blit(GameConfig.TERRAIN_IMG, (0, 0))
         window.blit(GameConfig.EAU_IMG, (0,0))
 
+        #affichage des worms
         self.worm.draw(window)
         self.worm2.draw(window)
 
@@ -18,10 +21,14 @@ class GameState:
 
 
     def __init__(self):
+        #création des worms
         self.worm = Worm(20, GameConfig.MAP)
         self.worm2 = Worm(350, GameConfig.MAP)
 
+        #création de l'objet shoot
         self.Shoot = Shoot(self.worm)
+
+
 
     def advance_state(self, next_move,window):
         self.worm.advance_state(next_move)
@@ -51,11 +58,7 @@ class GameState:
                                           GameConfig.projectile_W,
                                           GameConfig.projectile_H)
 
-
-
-
-
-
+    #méthode pour adapté l'angle du projectile
     def angle(self,next_move):
         if next_move.angleHaut:
             GameConfig.ANGLE+=1
@@ -68,18 +71,8 @@ class GameState:
             if GameConfig.ANGLE<0:
                 GameConfig.ANGLE = 0
 
-    def puissance(self,next_move):
-        if next_move.angleHaut:
-            GameConfig.ANGLE+=1
-            print(GameConfig.ANGLE)
-            if GameConfig.ANGLE>90:
-                GameConfig.ANGLE = 90
-        elif next_move.angleBas:
-            GameConfig.ANGLE-=1
-            print(GameConfig.ANGLE)
-            if GameConfig.ANGLE<0:
-                GameConfig.ANGLE = 0
 
+    #méthode pour appliqué la modification de l'angle sur le proectile
     def variationVecteur(self,next_move):
 
         if next_move.angle and GameConfig.D_DROIT==True:

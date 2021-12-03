@@ -4,9 +4,10 @@ from Map import *
 
 class GameConfig:
     #définition de la fenetre
-    WINDOW_H = 640
     WINDOW_L = 960
+    WINDOW_H = 640
 
+    #classe pour initialiser les configuration du jeu
     def init():
         GameConfig.BACKGROUND_IMG = pygame.image.load('ressources/background.png')
         GameConfig.CRAPOUX_IMG = pygame.image.load('ressources/crapoux_asset.png')
