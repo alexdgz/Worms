@@ -37,6 +37,7 @@ def game_loop(window):
         game_state.angle(next_move) #on lance la fonction pour géré l'angle si on veut tiré
         game_state.variationVecteur(next_move) #on lance la fonction pour appliquer la variation au vecteur selon l'angle
 
+        #les 2 conditions suivantes servent a afficher la victoire respective des joueurs 1 et 2 lorsque le ver ennemi meurt
         if game_state.worm2.hp == 0:
             textsurface = myfont.render('Victoire du Crapoux numéro 1', False, (0, 0, 0))
             window.blit(textsurface,(0,0))

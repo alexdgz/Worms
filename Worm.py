@@ -4,7 +4,7 @@ import Platform
 from GameConfig import *
 from Platform import *
 
-#classe pour définir notre worms
+#classe définissant un worm
 class Worm(pygame.sprite.Sprite) :
     def __init__(self, x, map):
         self.rect = pygame.Rect(x,
@@ -29,7 +29,7 @@ class Worm(pygame.sprite.Sprite) :
     def is_touching(self,projectile):
         return pygame.sprite.collide_mask(self,projectile)
 
-    # méthode pour avancé dans les différents états du worm
+    # méthode pour avancer dans les différents états du worm
     def advance_state(self, next_move):
 
         # Acceleration

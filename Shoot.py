@@ -4,7 +4,7 @@ import numpy as np
 from GameConfig import *
 
 class Shoot(pygame.sprite.Sprite):
-    def __init__(self, Worm):
+    def __init__(self, Worm):#création du projectile affecté a un worm
         self.Worm = Worm
 
         self.rect = pygame.Rect(Worm.rect.left,
@@ -17,16 +17,16 @@ class Shoot(pygame.sprite.Sprite):
         self.mask = GameConfig.PROJECTILE_MASK
 
 
-    def draw(self,window):
+    def draw(self,window):#fonction pour visualiser le projectile
         window.blit(self.image, self.rect.topleft)
 
-    def on_ground(self):
+    def on_ground(self):#fonction qui revoie true quand le projectile touche le sol de la map
         if pygame.sprite.collide_mask(self,Platform(0)):
             print("on ground")
             return True
         return False
 
-    def fg(self,y):
+    def fg(self,y):#
         return np.array([0,GameConfig.GRAVITY/GameConfig.MASSE,y[0],y[1]])
 
     def euler(self,y,dt,f):
@@ -38,7 +38,6 @@ class Shoot(pygame.sprite.Sprite):
         if next_move.shoot:
 
                self.draw(window)
-               #while(self.rect.top<GameConfig.Y_PLATEFORM):
                y = np.array([GameConfig.VECTEUR.x, GameConfig.VECTEUR.y, self.rect.left, self.rect.top])
                Y = self.euler(y,GameConfig.DT,self.fg)
                GameConfig.VECTEUR.x = Y[0]

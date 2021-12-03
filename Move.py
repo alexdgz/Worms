@@ -1,6 +1,6 @@
 import pygame
 
-# classe pour pouvoir géré les mouvements
+# classe pour pouvoir gérer les mouvements
 class Move:
     def __init__(self):
         self.left = False

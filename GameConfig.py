@@ -27,8 +27,6 @@ class GameConfig:
         GameConfig.PROJECTILE_MASK = pygame.mask.from_surface(GameConfig.PROJECTILE_IMG)
 
 
-    #définition TEMPORAIRE de la plateforme
-    Y_PLATEFORM = 516
     GRAVITY = 9.81
     MASSE = 30
 
@@ -50,7 +48,5 @@ class GameConfig:
 
     G_GAUCHE = False
     D_DROIT = False
-    #VX = VECTEUR.x
-    #VY = VECTEUR.y
 
 

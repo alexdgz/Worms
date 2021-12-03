@@ -3,16 +3,16 @@ import numpy as np
 from PIL import Image
 
 class Map:
-    # définition des images voulu avec le calcul de lagrange
+    # définition des images voulues avec le calcul de lagrange
     def __init__(self):
         self.yCourant =  np.array([random.randint(540,600), random.randint(400,450), random.randint(600,700), random.randint(350,400), random.randint(540,640)])
 
 
     # fonction qui calcule lagrange
     def lagrange(self, X): # pour tout x, je trouve son y
-        ecartX = 960 // 4  # pour mettre 5 pts
+        ecartX = 960 // 4  # pour placer 5 points
 
-        xCourant = np.array([20,ecartX,ecartX*2,ecartX*3,ecartX*4-20]) #pour séparé l'écrans en 5
+        xCourant = np.array([20,ecartX,ecartX*2,ecartX*3,ecartX*4-20]) #pour séparer l'écran en 5
         
         tabF = np.zeros(len(xCourant))
 
@@ -33,9 +33,9 @@ class Map:
     def mapCreate(self):
         courbe = Image.new(mode = 'RGBA', size=(640,960), color = (55,32,20,255)) # création de l'image
         tabPix = []
-        for x in range(960): # parcourt de la largeur de la fenêtre
+        for x in range(960): # parcours de la largeur de la fenêtre
             lagr = self.lagrange(x)
-            for y in range(640): # parcourt de la hauteur de la fenêtre
+            for y in range(640): # parcours de la hauteur de la fenêtre
                 if(lagr<y):
                     tabPix.append((0,0,0,255)) #couleur noir
                 else:
@@ -43,7 +43,7 @@ class Map:
 
 
 
-        courbe.putdata(tabPix) #ajout des pixel sur l'image
+        courbe.putdata(tabPix) #ajout des pixels sur l'image
 
         imgTerrainFinal = Image.new(mode = 'RGBA', size=(960,640), color = (55,32,20,0))
         dirt = Image.open("ressources/dirt.png")
